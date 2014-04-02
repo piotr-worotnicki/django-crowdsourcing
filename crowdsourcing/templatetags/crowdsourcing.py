@@ -50,7 +50,7 @@ register = template.Library()
 
 def yahoo_api():
     return mark_safe("\n".join([
-        '<script src="http://yui.yahooapis.com/3.15.0/build/yui/yui-min.js"></script>',
+        '<script src="http://yui.yahooapis.com/2.8.1/build/yuiloader/yuiloader-min.js"></script>',
         '<style>',
         '  .chart_div { width: 600px; height: 300px; }',
         '</style>']))
@@ -323,7 +323,7 @@ def _yahoo_chart(display, unique_id, args):
         <script type="text/javascript">
           yahooChartCallbacks.push(function() {
             YAHOO.widget.Chart.SWFURL =
-              "http://0.0.0.0";
+              "http://yui.yahooapis.com/2.8.0r4/build/charts/assets/charts.swf";
             var answerData = %(answer_string)s;
             var %(data_var)s = new YAHOO.util.DataSource(answerData);
             %(data_var)s.responseType = YAHOO.util.DataSource.TYPE_JSARRAY;

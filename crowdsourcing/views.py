@@ -18,6 +18,7 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import get_object_or_404, render_to_response
 from django.template import RequestContext as _rc
 from django.utils.html import escape
+from crispy_forms.helper import FormHelper
 
 from .forms import forms_for_survey
 from .models import (
@@ -217,6 +218,10 @@ def embeded_survey_questions(request, slug):
     survey = _get_survey_or_404(slug, request)
     templates = ['crowdsourcing/embeded_survey_questions_%s.html' % slug,
                  'crowdsourcing/embeded_survey_questions.html']
+
+    crispy_helper = FormHelper()
+    crispy_helper.form_tag = False
+
     forms = ()
     if _can_show_form(request, survey):
         forms = forms_for_survey(survey, request)
@@ -228,6 +233,7 @@ def embeded_survey_questions(request, slug):
         request=request,
         forms=forms,
         survey=survey,
+        crispy_helper=crispy_helper,
         login_url=_login_url(request)), _rc(request))
 
 
@@ -290,6 +296,8 @@ def submissions(request, format):
     is_staff = request.user.is_authenticated() and request.user.is_staff
     if is_staff:
         results = Submission.objects.all()
+        for r in results:
+            pass
     else:
         # survey.can_have_public_submissions is complicated enough that
         # we'll check it in Python, not the database.

@@ -19,7 +19,7 @@ def get_latitude_and_longitude(location):
     if google_key:
         g = geopy.geocoders.Google(google_key)
     else:
-        g = geopy.geocoders.GeoNames(output_format='json')
+        g = geopy.geocoders.GeoNames()
     oldstdout = sys.stdout
     try:
         sys.stdout = cStringIO.StringIO()

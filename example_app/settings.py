@@ -65,24 +65,17 @@ SECRET_KEY = '%n@##5o0%d@qd5l4^+(zt5ih@90a7ch4k3m7a^!5unw45)i=ly'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
+    'django.template.loaders.filesystem.load_template_source',
+    'django.template.loaders.app_directories.load_template_source',
 )
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    )
+)
 
 ROOT_URLCONF = 'example_app.urls'
-
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, "static"),
-)
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -92,12 +85,10 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
-    'django.contrib.staticfiles',
     'django.contrib.admin',
     'crowdsourcing',
     'cms',

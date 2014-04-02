@@ -91,7 +91,7 @@ class Survey(models.Model):
         help_text="Users can vote on submissions.")
     archive_policy = models.IntegerField(
         choices=ARCHIVE_POLICY_CHOICES,
-        default=ARCHIVE_POLICY_CHOICES.IMMEDIATE,
+        default=ARCHIVE_POLICY_CHOICES.NEVER,
         help_text=_("At what point will Crowdsourcing make the results "
                     "public? immediate: All results are immediately public. "
                     "post-close: Results are public on or after the "

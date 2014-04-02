@@ -225,4 +225,5 @@ class SurveyReportAdmin(admin.ModelAdmin):
     inlines = [SurveyReportDisplayInline]
 
 
-admin.site.register(SurveyReport, SurveyReportAdmin)
+
+#admin.site.register(SurveyReport, SurveyReportAdmin)
