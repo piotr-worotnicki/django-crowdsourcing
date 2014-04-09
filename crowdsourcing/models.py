@@ -805,7 +805,6 @@ class Answer(models.Model):
         max_length=500,
         blank=True,
         thumbnail=image_answer_thumbnail_meta,
-        extra_thumbnails=local_settings.EXTRA_THUMBNAILS,
         upload_to=local_settings.IMAGE_UPLOAD_PATTERN)
     latitude = models.FloatField(blank=True, null=True)
     longitude = models.FloatField(blank=True, null=True)
