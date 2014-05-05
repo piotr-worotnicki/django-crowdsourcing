@@ -15,7 +15,7 @@ classifiers = [
 
 
 setup(name='django-crowdsourcing',
-      version='1.1.35',
+      version='1.1.36',
       classifiers=classifiers,
       description='Django app for collecting and displaying surveys.',
       long_description=long_description,
@@ -23,5 +23,4 @@ setup(name='django-crowdsourcing',
       author_email='jsmullyan@gmail.com',
       url='http://code.google.com/p/django-crowdsourcing/',
       packages=['crowdsourcing', 'crowdsourcing.templatetags'],
-      license='MIT',
-     )
+      license='MIT',)
